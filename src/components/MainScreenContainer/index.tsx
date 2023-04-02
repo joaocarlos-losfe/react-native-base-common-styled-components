@@ -1,11 +1,13 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import { styles } from "./styles";
-import Header from "./Header";
+import Header from "../Header";
 import { StatusBar } from "expo-status-bar";
+import VerticalStack from "../VerticalStack";
+import CenterHorizontally from "../CenterHorizontally";
 
 type Props = {
-  children: JSX.Element | JSX.Element[] | undefined;
+  children?: JSX.Element | JSX.Element[];
   headerChildren?: JSX.Element | undefined;
   headerColor?: string;
   statusBarItemsStyle?: "auto" | "dark" | "inverted" | "light";
@@ -33,11 +35,20 @@ export default function MainScreenContainer({
         style={[
           styles.scrollViewContainer,
           {
-            backgroundColor: backgroundColor ? backgroundColor : "white",
+            backgroundColor: backgroundColor ? backgroundColor : "#3920ff",
             paddingTop: headerChildren ? 0 : 16,
           },
         ]}
       >
+        {!children && (
+          <VerticalStack justifyContent="center" height={500}>
+            <CenterHorizontally>
+              <Text style={{ color: "white", fontSize: 112 }}>
+                {"hello wold"}
+              </Text>
+            </CenterHorizontally>
+          </VerticalStack>
+        )}
         <View>{children}</View>
       </ScrollView>
       {statusBarItemsStyle && (
@@ -46,7 +57,7 @@ export default function MainScreenContainer({
           translucent
           animated
           backgroundColor={
-            statusBarBackgroundColor ? statusBarBackgroundColor : "gray"
+            statusBarBackgroundColor ? statusBarBackgroundColor : "#2716b2"
           }
         />
       )}
