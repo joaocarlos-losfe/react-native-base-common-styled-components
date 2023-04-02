@@ -9,7 +9,7 @@ type Props = {
   height?: number;
 };
 
-export default function VerticalStack({
+export default function HorizontalStack({
   children,
   justifyContent,
   gap,

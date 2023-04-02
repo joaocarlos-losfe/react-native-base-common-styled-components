@@ -10,7 +10,7 @@ type Props = {
 export default function Header({ children, headerColor }: Props) {
   return (
     <View
-      style={[styles.container, { backgroundColor: headerColor || "gray" }]}
+      style={[styles.container, { backgroundColor: headerColor || "#1b0f7e" }]}
     >
       {children}
     </View>
