@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   mainContainer: {},
   text: {
     fontSize: 32,
-    color: "black",
+    color: "white",
     fontWeight: "bold",
     marginBottom: 12,
   },

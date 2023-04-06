@@ -1,18 +1,20 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import { styles } from "./styles";
-import Header from "../Header";
 import { StatusBar } from "expo-status-bar";
 import VerticalStack from "../VerticalStack";
 import CenterHorizontally from "../CenterHorizontally";
+import Toast from "react-native-toast-message";
 
 type Props = {
   children?: JSX.Element | JSX.Element[];
   headerChildren?: JSX.Element | undefined;
   headerColor?: string;
+  headerHeight?: string | number;
   statusBarItemsStyle?: "auto" | "dark" | "inverted" | "light";
   statusBarBackgroundColor?: string;
   backgroundColor?: string;
+  enableScroll?: boolean;
   withNavigationBar?: boolean;
 };
 
@@ -20,17 +22,27 @@ export default function MainScreenContainer({
   children,
   headerChildren,
   headerColor,
+  headerHeight,
   statusBarItemsStyle,
   statusBarBackgroundColor,
   backgroundColor,
+  enableScroll,
   withNavigationBar,
 }: Props) {
   return (
     <View style={[styles.mainContainer]}>
       {headerChildren && (
-        <Header headerColor={headerColor}>{headerChildren}</Header>
+        <View
+          style={[
+            styles.header,
+            { backgroundColor: headerColor, height: headerHeight },
+          ]}
+        >
+          {headerChildren}
+        </View>
       )}
       <ScrollView
+        scrollEnabled={enableScroll}
         keyboardDismissMode="interactive"
         style={[
           styles.scrollViewContainer,
@@ -61,6 +73,7 @@ export default function MainScreenContainer({
           }
         />
       )}
+      <Toast />
     </View>
   );
 }

@@ -1,4 +1,4 @@
-import { View, Text, TextInput } from "react-native";
+import { Text, TextInput } from "react-native";
 import React from "react";
 import MainScreenContainer from "../components/MainScreenContainer";
 import { styles } from "./styles";
@@ -9,11 +9,17 @@ import HorizontalStack from "../components/HorizontalStack";
 export default function HomeScreen() {
   return (
     <MainScreenContainer
-      statusBarItemsStyle="inverted"
+      statusBarItemsStyle="light"
       backgroundColor="#3920ff"
       statusBarBackgroundColor="#2716b2"
       headerColor="#1b0f7e"
-      headerChildren={<View></View>}
+      headerChildren={
+        <HorizontalStack gap={10} justifyContent="space-evenly">
+          <Text style={styles.text}>A</Text>
+          <Text style={styles.text}>B</Text>
+          <Text style={styles.text}>C</Text>
+        </HorizontalStack>
+      }
       withNavigationBar={true}
     >
       <VerticalStack gap={32}>
@@ -68,7 +74,7 @@ export default function HomeScreen() {
 
           <VerticalStack gap={32}>
             <CenterHorizontally>
-              <Text>
+              <Text style={{ fontSize: 16, color: "white" }}>
                 Leite de capivaris, leite de mula manquis sem cabeça.In
                 elementis mé pra quem é amistosis quis leo.Cevadis im ampola pa
                 arma uma pindureta.Atirei o pau no gatis, per gatis num morreus.
@@ -101,37 +107,3 @@ export default function HomeScreen() {
     </MainScreenContainer>
   );
 }
-
-/**
- * 
- * <CenterHorizontally>
-        <Text style={styles.text}>asjdoia jsiod asd</Text>
-        <Text style={styles.text}>asjdoia jsiod asd</Text>
-      </CenterHorizontally>
-
-      <VerticalStack gap={10} height={500}>
-        <TextInput
-          placeholder="first input"
-          placeholderTextColor={"white"}
-          style={{
-            paddingHorizontal: 12,
-            width: "100%",
-            height: 48,
-            backgroundColor: "#535353",
-            borderRadius: 8,
-          }}
-        />
-
-        <TextInput
-          placeholder="first input"
-          placeholderTextColor={"white"}
-          style={{
-            paddingHorizontal: 12,
-            width: "100%",
-            height: 48,
-            backgroundColor: "#535353",
-            borderRadius: 8,
-          }}
-        />
-      </VerticalStack>
- */

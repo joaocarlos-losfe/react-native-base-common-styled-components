@@ -6,6 +6,16 @@ export const styles = StyleSheet.create({
     paddingTop: 16,
   },
 
+  header: {
+    width: "100%",
+    height: 56,
+    paddingHorizontal: 16,
+    paddingTop: 24,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+
   scrollViewContainer: {
     flex: 1,
     paddingHorizontal: 16,
